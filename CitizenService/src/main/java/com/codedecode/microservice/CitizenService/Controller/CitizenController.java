@@ -29,6 +29,12 @@ public class CitizenController {
 		
 	}
 	
+	@PostMapping(path="/add")
+	public ResponseEntity<Citizen> addCitizen(@RequestBody Citizen newCitizen) {
+		
+		Citizen citizen = repo.save(newCitizen);
+		return new ResponseEntity<>(citizen, HttpStatus.OK);
+	}
 	
 	
 	
